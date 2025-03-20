@@ -1,0 +1,23 @@
+============Question===================
+https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/second-largest3735
+
+
+=============Java Code=======================
+class Solution {
+    public int getSecondLargest(int[] arr) {
+        
+        int largest = -1;
+        int sec = -1;
+        
+        for(int val : arr){
+            if(val > largest){
+                sec = largest;
+                largest = val;
+            }
+            if(val < largest && val > sec){
+                sec = val;
+            }
+        }
+        return sec;
+    }
+}
