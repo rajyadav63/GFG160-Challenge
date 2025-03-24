@@ -1,0 +1,39 @@
+==============Question=================
+https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/next-permutation5226
+
+============Java Code=================
+
+class Solution {
+    void nextPermutation(int[] arr) {
+        int n = arr.length;
+        int i = n - 2;
+        
+        while (i >= 0 && arr[i] >= arr[i + 1]) {
+            i--;
+        }
+        
+        if (i >= 0) {
+            int j = n - 1;
+            while (arr[j] <= arr[i]) {
+                j--;
+            }
+            swap(arr, i, j);
+        }
+        reverse(arr, i + 1, n - 1);
+    }
+
+    public void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+
+    public void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            swap(arr, start, end);
+            start++;
+            end--;
+        }
+    }
+}
+
