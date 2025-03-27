@@ -1,0 +1,21 @@
+Max one Transaction Allowed
+===============Question=============
+https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/buy-stock-2
+
+===============Java Code===========
+class Solution {
+    public int maximumProfit(int prices[]) {
+        int n = prices.length;
+        int mp = 0;
+        int bestDay = prices[0];
+
+        for(int i=1; i<n; i++){
+            if(prices[i]>bestDay){
+                int profit = prices[i]-bestDay;
+                mp = Math.max(mp, profit);
+            }
+             bestDay = Math.min(bestDay, prices[i]);
+        }
+        return mp;
+    }
+}
