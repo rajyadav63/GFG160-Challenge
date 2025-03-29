@@ -1,0 +1,20 @@
+====================Question Link===============
+https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/kadanes-algorithm-1587115620
+
+
+====================Java Code==================
+class Solution {
+    int maxSubarraySum(int[] arr) {
+        int n = arr.length;
+        int sum = 0;
+        int maxSum = Integer.MIN_VALUE;
+        for(int i=0; i<n; i++){
+            sum += arr[i];
+            maxSum = Math.max(sum, maxSum);
+            if(sum<0){
+                sum = 0;
+            }
+        }
+        return maxSum;
+    }
+}
